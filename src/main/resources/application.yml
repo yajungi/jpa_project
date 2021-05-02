@@ -1,25 +1,49 @@
 server:
   port: 9090
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    open-in-view: false
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+
+---
+
 spring:
   config:
     activate:
-      on-profile: local
+      on-profile: local_h2
 
   h2:
     console:
       enabled: true
-      path: h2-console
+      path: /h2-console
 
   jpa:
     database: h2
-    open-in-view: false
-    show-sql: true
-    hibernate:
-      ddl-auto: none
 
   datasource:
     platform: h2
     driver-class-name: org.h2.Driver
-    url: "jdbc:h2:mem:reservation-api;MODE=MYSQL;DB_CLOSE_DELAY=-1"
+    url: jdbc:h2:mem:reservation-api;MODE=MYSQL;DB_CLOSE_DELAY=-1
     username: sa
     password:
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: local_mysql
+
+  jpa:
+    database: mysql
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/reservation_jpa?serverTimezone=UTC&chracterEncoding=UTF-8&useUnicode=true
+    username: root
+    password: root
+    initialization-mode: always #mysql use data.sql, schema.sql (default in-memory DB)
