@@ -6,7 +6,7 @@ spring:
     hibernate:
       ddl-auto: none
     show-sql: true
-    open-in-view: false
+    open-in-view: true
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
 
 ---
@@ -45,5 +45,5 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/reservation_jpa?serverTimezone=UTC&chracterEncoding=UTF-8&useUnicode=true
     username: root
-    password: root
+    password:
     initialization-mode: always #mysql use data.sql, schema.sql (default in-memory DB)
