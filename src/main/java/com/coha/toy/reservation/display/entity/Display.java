@@ -1,6 +1,7 @@
 package com.coha.toy.reservation.display.entity;
 
 import com.coha.toy.reservation.common.entity.BaseTime;
+import com.coha.toy.reservation.product.entity.Product;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -13,9 +14,6 @@ public class Display extends BaseTime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @Column(name="product_id")
-    private String productId;
 
     @Column(name="opening_hours")
     private String openingHours;
@@ -37,5 +35,13 @@ public class Display extends BaseTime {
 
     @Column(name="email")
     private String email;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 
 }

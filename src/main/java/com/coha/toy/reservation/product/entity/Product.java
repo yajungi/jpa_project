@@ -2,9 +2,11 @@ package com.coha.toy.reservation.product.entity;
 
 import com.coha.toy.reservation.category.entity.Category;
 import com.coha.toy.reservation.common.entity.BaseTime;
+import com.coha.toy.reservation.display.entity.Display;
 import lombok.Getter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="product")
@@ -31,5 +33,8 @@ public class Product extends BaseTime {
     public void setCategory(Category category) {
         this.category = category;
     }
+
+    @OneToMany(mappedBy = "product")
+    private List<Display> displays;
 
 }
