@@ -1,6 +1,6 @@
 package com.coha.toy.reservation.category.service;
 
-import com.coha.toy.reservation.category.entity.Category;
+import com.coha.toy.reservation.category.dto.CategoryDto;
 import com.coha.toy.reservation.category.repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,9 +15,9 @@ public class CategoryService {
     private final CategoryRepository categoryRepository;
 
     @Transactional(readOnly = true)
-    public List<Category> getCategories() {
+    public List<CategoryDto> getCategories() {
 
-        return categoryRepository.findAllCategories();
+        return categoryRepository.findCategories();
     }
 
 }
