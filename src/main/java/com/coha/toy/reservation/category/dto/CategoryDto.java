@@ -1,10 +1,12 @@
 package com.coha.toy.reservation.category.dto;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class CategoryDto {
 
     private long id;
