@@ -1,8 +1,10 @@
 package com.coha.toy.reservation.common.entity;
 
+import lombok.Getter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+@Getter
 public class ApiResult<T> {
 
     private final T data;
@@ -18,20 +20,8 @@ public class ApiResult<T> {
         return new ApiResult<>(data, null);
     }
 
-    public static ApiResult<?> failed(Throwable throwable) {
-        return failed(throwable.getMessage());
-    }
-
     public static ApiResult<?> failed(String message) {
         return new ApiResult<>(null, message);
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public String getError() {
-        return error;
     }
 
     @Override
