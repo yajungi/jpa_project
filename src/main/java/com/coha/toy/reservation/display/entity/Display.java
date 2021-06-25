@@ -1,6 +1,7 @@
 package com.coha.toy.reservation.display.entity;
 
 import com.coha.toy.reservation.common.entity.BaseTime;
+import com.coha.toy.reservation.display.image.entity.DisplayImage;
 import com.coha.toy.reservation.product.entity.Product;
 import lombok.Getter;
 
@@ -42,6 +43,13 @@ public class Display extends BaseTime {
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    @OneToOne
+    private DisplayImage displayImage;
+
+    public void setDisplayImage(DisplayImage displayImage) {
+        this.displayImage = displayImage;
     }
 
 }
